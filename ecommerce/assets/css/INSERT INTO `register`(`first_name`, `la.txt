@@ -1,0 +1,1 @@
+INSERT INTO `register`(`first_name`, `last_name`, `username`, `email`, `password`, `designation`) VALUES ('Priya','singh','priya_singh','priya@gmail.com','priya@123','IT')

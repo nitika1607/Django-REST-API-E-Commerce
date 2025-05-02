@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="product_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="product_taital">Our Products</h1>
+                    <p class="product_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="product_section_2 layout_padding">
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="product_box">
+                            <h4 class="bursh_text">{{ product.title }}</h4>
+                            <p class="lorem_text">{{ product.description }}</p>
+                            <img src="{{ product.image.url }}" class="image_1" alt="{{ product.title }}">
+                            <div class="btn_main">
+                                <div class="buy_bt">
+                                    <ul>
+                                        <li><a href="{% url 'product_detail' product.id %}">Buy Now</a></li>
+                                    </ul>
+                                </div>
+                                <h3 class="price_text">Price ${{ product.price }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

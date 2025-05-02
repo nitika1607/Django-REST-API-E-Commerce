@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!-- Start Login Page-->
+<div class="container login-box">
+    <div class="row justify-content-center">
+        <div class="col-md-4 login-form">
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    Invalid username or password.
+                </div>
+            {% endif %}
+            <div class="card shadow">
+                <h3 class="text-center mb-4">Login</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="text" name="username" class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'reset_password' %}">Forgot password?</a><br>
+                        <a href="{% url 'register' %}">Create an account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Login content-->
+ {% endblock %}
